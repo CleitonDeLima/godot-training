@@ -21,6 +21,7 @@ enemy_scene = ExtResource("4_1bvp3")
 
 [node name="Circle" type="Node2D" parent="."]
 script = ExtResource("1_ig7tw")
+attack_damage = 5
 
 [node name="AttackArea" type="Area2D" parent="Circle"]
 

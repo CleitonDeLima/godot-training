@@ -1,7 +1,7 @@
 extends Node
 
-func display_number(value: int, position: Vector2):
-	var number = Label.new()
+func display_number(value: int, position: Vector2) -> void:
+	var number: Label = Label.new()
 	number.global_position = position
 	number.text = str(value)
 	number.z_index = 5
@@ -17,7 +17,7 @@ func display_number(value: int, position: Vector2):
 	await number.resized
 	number.pivot_offset = Vector2(number.size / 2.2)
 	
-	var tween = get_tree().create_tween()
+	var tween: Tween = get_tree().create_tween()
 	tween.set_parallel(true)
 	tween.tween_property(
 		number, "position:y", number.position.y - 24, 0.25
