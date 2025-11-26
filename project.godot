@@ -10,14 +10,15 @@ config_version=5
 
 [application]
 
-config/name="exemplos"
-run/main_scene="uid://cdlxu5s1mtrs6"
+config/name="DarkArena"
+run/main_scene="uid://bc7hru66ik6ul"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 DamageNumbers="*res://singletons/DamageNumbers.gd"
+Global="*res://scripts/Global.gd"
 
 [debug]
 

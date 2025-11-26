@@ -17,4 +17,5 @@ func take_damage(amount: int) -> void:
 	DamageNumbers.display_number(amount, damage_numbers_origin.global_position)
 	
 	if hp <= 0:
+		Global.score += 1
 		queue_free()  # remove o inimigo da tela

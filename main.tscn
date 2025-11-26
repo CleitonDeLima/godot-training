@@ -1,19 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdlxu5s1mtrs6"]
+[gd_scene load_steps=8 format=3 uid="uid://cdlxu5s1mtrs6"]
 
-[ext_resource type="Texture2D" uid="uid://bhxvbhjpco1gf" path="res://images/background.png" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://n77xv6rcehia" path="res://main.gd" id="1_7mycd"]
 [ext_resource type="Script" uid="uid://c6a8o60tbvdmx" path="res://scripts/circle.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://bbi0nam13xm8a" path="res://scripts/enemy_spawner.gd" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://pevqrxt4mloc" path="res://scenes/enemy.tscn" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://btgiqc6q740sj" path="res://scripts/score.gd" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://d0m3pedy2gov8" path="res://pause_menu/pause_menu.tscn" id="5_lquwl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1bvp3"]
 radius = 0.01
 
 [node name="Main" type="Node2D"]
-
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(585.25, 315.00003)
-scale = Vector2(1.2309572, 0.97265625)
-texture = ExtResource("1_0xm2m")
+script = ExtResource("1_7mycd")
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource("3_h2yge")
@@ -27,3 +25,30 @@ attack_damage = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Circle/AttackArea"]
 shape = SubResource("CircleShape2D_1bvp3")
+
+[node name="UserInterface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 724.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Score" type="Label" parent="UserInterface"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -6.0
+offset_right = 6.0
+offset_bottom = 28.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 20
+text = "0"
+horizontal_alignment = 1
+script = ExtResource("4_lquwl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("5_lquwl")]
